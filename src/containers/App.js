@@ -6,8 +6,6 @@ import { Route } from 'react-router-dom';
 import About from '../components/About.jsx';
 import Ciudad from '../components/Ciudad.jsx';
 
-const apiKey = '4ae2636d8dfbdc3044bede63951a019b';
-
 function App() {
 	const [cities, setCities] = useState([]);
 	function onClose(id) {
@@ -24,7 +22,7 @@ function App() {
 		});
 		if (!duplicada) {
 			fetch(
-				`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}`
+				`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${process.env.REACT_APP_APIKEY}`
 			)
 				.then((r) => r.json())
 				.then((recurso) => {
