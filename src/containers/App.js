@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Nav from '../components/Nav.jsx';
 import Cards from '../components/Cards.jsx';
@@ -8,6 +8,11 @@ import Ciudad from '../components/Ciudad.jsx';
 
 function App() {
 	const [cities, setCities] = useState([]);
+
+	useEffect(() => {
+		onSearch('Buenos Aires');
+	}, []);
+
 	function onClose(id) {
 		setCities((oldCities) => oldCities.filter((c) => c.id !== id));
 	}
